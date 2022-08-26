@@ -7,27 +7,15 @@
 <title>APP SHOPPING</title>
 <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-  </head>
   <body>
     <!--LOGO-->
     <div class="logo"><span>DA</span> APP SHOPPING</div>
 
     <div class="container">
       <!--NAVBAR-->
-      <n
+      <nav>
       <a href="./index.html" class="active">Home</a>
-        <a href="cart.html">Cart: <span>0</span></a>
+        <a href="cart.html">Cart: <span id="sam">0</span></a>
         
       </nav>
 
@@ -46,8 +34,7 @@
             <span>*</span><span>*</span><span>*</span><span>*</span>
           </div>
           <div class="product__price" id="total">R<span>2000</span></div>
-          <button onclick="cartup">ADD TO CART +</button>
-          <h1 id="display">0</h1>
+          <button onclick="cartitems()">+ ADD TO CART</button>
         </div>
       </section>
     </div>
@@ -55,6 +42,21 @@
     <br>
     <br>
   <h2 class="cart"> cart item there ....</h2>
+  <div class="product" style="width: 20%; height:100px">
+    <div class="product__img">
+      <img
+        src="https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_space_grey-1_2.png?format=jpeg" style="width: 150%; height: 100px"
+        alt=""
+      />
+    </div>
+
+    <div class="product__name" id="productname">Computer</div>
+    <div class="product__rate">
+      <span>*</span><span>*</span><span>*</span><span>*</span>
+    </div>
+    <div class="product__price" id="total">R<span>2000</span></div>
+    <button onclick="cartitems()">+ ADD TO CART</button>
+  </div>
     <!--JAVASCRIPT-->
     <script src="./script.js"></script>
   </body>

@@ -66,32 +66,25 @@ var productsState = [
   },
 ]
 
-
+var numberdisplay = 0;
 // LINK JS TO HTML ELEMENT
-const products = document.getElementById('products')
-const productname = document.getElementById('productname ')
-const total = document.getElementById('total')
+const sam = document.getElementById('sam');
 
-let Number = 0;
-
-function cart(){
-
-    
-    
-  let cart = document.getElementById("display").innerHTML = ++Number;
+function cartitems(){
+  sam = document.getElementById('sam').innerHTML = ++numberdisplay;
 }
 
-function cart(){
 
-    let cart = document.getElementById("display").innerHTML = --Number;
-}
-// DISPLAY PRODUCTS IN HOME PAGE
+
+
+    
+
+// DISPLAY PRODUCTS IN HOME
 function homeDisplayProducts() {
     products.innerHTML = ""
   // loop into productsState and display
   for (let i = 0; i < productsState.length; i++) {
     products.innerHTML += `
-    
     <div class="product">
         <div class="product__img">
             <img
@@ -104,15 +97,13 @@ function homeDisplayProducts() {
                 ${'<span>*</span>'.repeat(productsState[i].rates)}
               </div>
               <div class="product__price">R <span>${productsState[i].price}</span></div> 
-                <button>+ ADD TO CART</button>
-                
-          </div>
-    
+                <button onclick="cartitems()">+ ADD TO CART</button> 
+         </div>
     `
-
   }
-
 }
 
+
+
 // CALL THE DISPLAY FUNCTION
-homeDisplayProducts() 
+homeDisplayProducts()
