@@ -2,81 +2,90 @@
 var productsState = [
   {
     id: 1,
-    name: 'Macbook Pro',
-    price: 28000,
+    name: ' Letter Graphic Drop Shoulder Pullover',
+    price: 150,
     rates: 5,
     image:
-      'https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_space_grey-1_2.png?format=jpeg',
+      'https://img.ltwebstatic.com/images3_pi/2021/08/16/1629083587474cdf17585774a0fe80784bb60b22cc.webp',
   },
   {
     id: 2,
-    name: 'Iphone 13 Pro',
-    price: 23000,
+    name: 'short dress',
+    price: 3000,
     rates: 3,
     image:
-      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
+      'https://img.ltwebstatic.com/images3_pi/2021/10/15/16342613338f40e1ee14f9b7c6d3688e2deb90d4ef_thumbnail_900x.webp',
   },
   {
     id: 1,
-    name: 'Iphone 6 C',
-    price: 7000,
+    name: 'Lcn Music Merch Oversized Graphic Crew',
+    price: 350,
     rates: 2,
     image:
-      'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80',
+      'https://cottonon.com/dw/image/v2/BBDS_PRD/on/demandware.static/-/Sites-catalog-master-factorie/default/dwf32b6da9/5297790/5297790-10-2.jpg?sw=640&sh=960&sm=fit',
   },
   {
     id: 1,
-    name: 'HP Laptop',
-    price: 8000,
+    name: 'Racing Jacket',
+    price: 800,
     rates: 1,
     image:
-      'https://images.unsplash.com/photo-1589561084283-930aa7b1ce50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80',
+      'https://i.etsystatic.com/26828389/r/il/741783/3694956231/il_340x270.3694956231_71vx.jpg',
   },
   {
     id: 1,
-    name: 'Dell Laptop',
-    price: 4000,
+    name: 'Contrast Collar Letter Graphic Crop PulloverDell Laptop',
+    price: 120,
     rates: 1,
     image:
-      'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      'https://img.ltwebstatic.com/images3_pi/2021/06/11/1623380697decee6cf37d8732aeda1ad982c6c6fdb_thumbnail_900x.webp',
   },
   {
     id: 1,
-    name: 'Macbook Pro',
-    price: 15000,
+    name: 'Macbook ProToddler Girls Slogan Graphic Hoodie',
+    price: 150,
     rates: 5,
     image:
-      'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      'https://img.ltwebstatic.com/images3_pi/2022/07/25/1658734261f05455faea3d3bb11b55e072ce1d0252.webp',
   },
   {
     id: 1,
-    name: 'Playstation 5',
+    name: 'Striped Trim Knit Tank Top',
     price: 20000,
     rates: 4,
     image:
-      'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      'https://img.ltwebstatic.com/images3_pi/2020/11/06/160463123438e244cb65f140145d551346c8d7ce89.webp',
   },
   {
     id: 1,
-    name: 'PS 4 Joystick',
+    name: 'Puff Sleeve Schiffy Crop Top',
     price: 1200,
     rates: 3,
     image:
-      'https://images.unsplash.com/photo-1592840496694-26d035b52b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=825&q=80',
+      'https://img.ltwebstatic.com/images3_pi/2021/05/24/16218288918b5c9acb61e2a4f7c320fc1a64c9814b.webp',
   },
 ]
 
-var numberdisplay = 0;
-// LINK JS TO HTML ELEMENT
-const sam = document.getElementById('sam');
+var numberdisplay = []
 
-function cartitems(){
-  sam = document.getElementById('sam').innerHTML = ++numberdisplay;
+// LINK JS TO HTML ELEMENT
+const cartA = document.getElementById('cartA') 
+const products = document.getElementById('products')
+
+
+
+
+function cartitems(i){
+  sam = document.getElementById('sam')
+  numberdisplay.push(productsState[i]);
+  homeDisplayProducts();
+  samela();
 }
 
 
-
-
+function deleted() {
+  
+}
     
 
 // DISPLAY PRODUCTS IN HOME
@@ -97,13 +106,39 @@ function homeDisplayProducts() {
                 ${'<span>*</span>'.repeat(productsState[i].rates)}
               </div>
               <div class="product__price">R <span>${productsState[i].price}</span></div> 
-                <button onclick="cartitems()">+ ADD TO CART</button> 
+                <button onclick="cartitems(${i})">+ ADD TO CART</button> 
          </div>
     `
   }
+
+  
 }
 
+function samela() {
+  cartA.innerHTML = ""
+// loop into productsState and display
+for (let i = 0; i < numberdisplay.length; i++) {
+  cartA.innerHTML += `
+  <div class="product">
+      <div class="product__img">
+          <img
+            src="${numberdisplay[i].image}"
+            alt=""
+          />
+      </div>
+          <div class="product__name">${numberdisplay[i].name}</div>
+            <div class="product__rate">
+              ${'<span>*</span>'.repeat(numberdisplay[i].rates)}
+            </div>
+            <div class="product__price">R <span>${numberdisplay[i].price}</span></div> 
+            <button class="btn" onclick="deleted()">Delete</button>
+       </div>
+  `
+}
+sam.innerHTML = numberdisplay.length;
 
+}
 
+samela();
+homeDisplayProducts();
 // CALL THE DISPLAY FUNCTION
-homeDisplayProducts()
