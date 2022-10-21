@@ -43,7 +43,7 @@ var productsState = [
   {
     id: 1,
     name: 'Macbook ProToddler Girls Slogan Graphic Hoodie',
-    price: 150,
+    price: 200,
     rates: 5,
     image:
       'https://img.ltwebstatic.com/images3_pi/2022/07/25/1658734261f05455faea3d3bb11b55e072ce1d0252.webp',
@@ -51,7 +51,7 @@ var productsState = [
   {
     id: 1,
     name: 'Striped Trim Knit Tank Top',
-    price: 20000,
+    price: 320,
     rates: 4,
     image:
       'https://img.ltwebstatic.com/images3_pi/2020/11/06/160463123438e244cb65f140145d551346c8d7ce89.webp',
@@ -59,7 +59,7 @@ var productsState = [
   {
     id: 1,
     name: 'Puff Sleeve Schiffy Crop Top',
-    price: 1200,
+    price: 1000,
     rates: 3,
     image:
       'https://img.ltwebstatic.com/images3_pi/2021/05/24/16218288918b5c9acb61e2a4f7c320fc1a64c9814b.webp',
@@ -69,24 +69,45 @@ var productsState = [
 var numberdisplay = []
 
 // LINK JS TO HTML ELEMENT
-const cartA = document.getElementById('cartA') 
 const products = document.getElementById('products')
+const productname = document.getElementById('productname');
+const cartData = document.getElementById('cartData');
+const priceTotal = document.getElementById('priceTotal');
 
 
 
 
 function cartitems(i){
-  sam = document.getElementById('sam')
-  numberdisplay.push(productsState[i]);
-  homeDisplayProducts();
-  samela();
+  numberdisplay.push(productsState[i])
+  samCotton = document.getElementById('samCotton')
+
+  samCotton.innerHTML = numberdisplay.length
+
+  cartD()
+  samatotal(i)
+  homeDisplayProducts()
 }
 
 
-function deleted() {
-  
+function deleted(i) {
+  numberdisplay.splice(i,1)
+
+  cartD()
+  samatotal(i)
+  homeDisplayProducts()
 }
     
+function samatotal(i) {
+  let total = 0;
+
+  for (let i = 0; i < numberdisplay.length; i++) {
+     total  += numberdisplay[i].price
+
+     priceTotal.innerHTML = total
+    
+  }
+  
+}
 
 // DISPLAY PRODUCTS IN HOME
 function homeDisplayProducts() {
@@ -114,11 +135,11 @@ function homeDisplayProducts() {
   
 }
 
-function samela() {
-  cartA.innerHTML = ""
+function cartD() {
+  cartData.innerHTML = ""
 // loop into productsState and display
 for (let i = 0; i < numberdisplay.length; i++) {
-  cartA.innerHTML += `
+  cartData.innerHTML += `
   <div class="product">
       <div class="product__img">
           <img
@@ -131,14 +152,18 @@ for (let i = 0; i < numberdisplay.length; i++) {
               ${'<span>*</span>'.repeat(numberdisplay[i].rates)}
             </div>
             <div class="product__price">R <span>${numberdisplay[i].price}</span></div> 
-            <button class="btn" onclick="deleted()">Delete</button>
+            <button class="btn" onclick="deleted(${i})">Delete</button>
        </div>
   `
 }
-sam.innerHTML = numberdisplay.length;
+cartD.innerHTML = numberdisplay.length;
 
 }
 
-samela();
-homeDisplayProducts();
+cartD()
+
+samatotal()
+
 // CALL THE DISPLAY FUNCTION
+homeDisplayProducts()
+cartD()

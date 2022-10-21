@@ -15,7 +15,7 @@
       <!--NAVBAR-->
       <nav>
       <a href="./index.html" class="active">Home</a>
-        <a href="cart.html">Cart: <span id="sam">0</span></a>
+        <a href="cart.html">Cart: <span id="samCotton">0</span></a>
         
       </nav>
 
@@ -26,7 +26,7 @@
             <img
               src="https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_space_grey-1_2.png?format=jpeg"
               alt=""
-            /> -->
+            />
           </div>
 
           <div class="product__name" id="productname">Computer</div>
@@ -38,24 +38,34 @@
           
         </div>
       </section>
-    </div>
-    <br>
-  <h2 class="cart"> cart item there ....</h2>
-<section class="products">
-  <div class="product" id="cartA">
-    <div class="product__img id">
+
+<br><br>
+      
+      <div class="display">cart item there ....</div>
+      <h1>Total Money: R<span id="priceTotal">0</span></h1>
+      <br><br>
+
+      <section class="products" id="cartData">
+        <div class="product">
+          <div class="product__img">
+            <img
+              src="https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_space_grey-1_2.png?format=jpeg"
+              alt=""
+            />
+          </div>
+
+          <div class="product__name" id="productname">Computer</div>
+          <div class="product__rate">
+            <span>*</span><span>*</span><span>*</span><span>*</span>
+          </div>
+          <div class="product__price" id="total">R<span>2000</span></div>
+          <button class="btn" onclick="deleted()">Delete</button>
+          
+        </div>
+      </section>
+    
 
     </div>
-
-    <div class="product__name" id="productname">Computer</div>
-    <div class="product__rate">
-      <span>*</span><span>*</span><span>*</span><span>*</span>
-    </div>
-    <div class="product__price" id="total">R<span>2000</span></div>
-  </div>
-  <button class="btn" onclick="deleted()">Delete</button>
-</section>
-
 
     <!--JAVASCRIPT-->
     <script src="./script.js"></script>
