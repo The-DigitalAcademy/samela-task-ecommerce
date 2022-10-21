@@ -85,6 +85,8 @@ const priceTotal = document.getElementById('priceTotal');
   cartD()
   samatotal()
   homeDisplayProducts()
+  saveTostoarge()
+  getTolocalstorage()
 }
 
 function homeDisplayProducts() {
@@ -108,7 +110,8 @@ for (let i = 0; i < productsState.length; i++) {
        </div>
   `
 }
-
+saveTostoarge()
+getTolocalstorage()
 
 }
 
@@ -142,8 +145,10 @@ function deleted(i) {
   document.getElementById('samcotton').innerHTML = numberdisplay.length;
 
   cartD()
-  samatotal(i)
+  samatotal()
   homeDisplayProducts()
+  saveTostoarge()
+  getTolocalstorage()
 }
 
 function samatotal(i) {
@@ -154,8 +159,20 @@ function samatotal(i) {
     
   }
   priceTotal.innerHTML = "R"+total
-  
+  saveTostoarge()
+  getTolocalstorage()
 }
+
+function saveTostoarge() {
+  var data = JSON.stringify(numberdisplay)
+  localStorage.setItem('numberdisplay', data)
+}
+
+function getTolocalstorage(){
+  var data = JSON.parse(localStorage.getItem('numberdisplay'))
+  numberdisplay = data
+}
+  
 
 // CALL THE DISPLAY FUNCTION
 homeDisplayProducts()
