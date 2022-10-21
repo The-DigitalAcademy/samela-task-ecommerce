@@ -69,72 +69,50 @@ var productsState = [
 var numberdisplay = []
 
 // LINK JS TO HTML ELEMENT
-const products = document.getElementById('products')
-const productname = document.getElementById('productname');
+const products = document.getElementById('products');
 const cartData = document.getElementById('cartData');
 const priceTotal = document.getElementById('priceTotal');
 
 
 
 
-function cartitems(i){
-  numberdisplay.push(productsState[i])
-  samCotton = document.getElementById('samCotton')
+  samcotton.innerHTML = numberdisplay.length
 
-  samCotton.innerHTML = numberdisplay.length
-
+  function cartitems(i){
+    numberdisplay.push(productsState[i])
+    document.getElementById('samcotton').innerHTML = numberdisplay.length;
+    
   cartD()
-  samatotal(i)
+  samatotal()
   homeDisplayProducts()
 }
 
-
-function deleted(i) {
-  numberdisplay.splice(i,1)
-
-  cartD()
-  samatotal(i)
-  homeDisplayProducts()
+function homeDisplayProducts() {
+  products.innerHTML = ""
+// loop into productsState and display
+for (let i = 0; i < productsState.length; i++) {
+  products.innerHTML += `
+  <div class="product">
+      <div class="product__img">
+          <img
+            src=${productsState[i].image}
+            alt=""
+          />
+      </div>
+          <div class="product__name">${productsState[i].name}</div>
+            <div class="product__rate">
+              ${'<span>*</span>'.repeat(productsState[i].rates)}
+            </div>
+            <div class="product__price">R <span>${productsState[i].price}</span></div> 
+              <button onclick="cartitems(${i})">+ ADD TO CART</button> 
+       </div>
+  `
 }
-    
-function samatotal(i) {
-  let total = 0;
 
-  for (let i = 0; i < numberdisplay.length; i++) {
-     total  += numberdisplay[i].price
 
-     priceTotal.innerHTML = total
-    
-  }
-  
 }
 
 // DISPLAY PRODUCTS IN HOME
-function homeDisplayProducts() {
-    products.innerHTML = ""
-  // loop into productsState and display
-  for (let i = 0; i < productsState.length; i++) {
-    products.innerHTML += `
-    <div class="product">
-        <div class="product__img">
-            <img
-              src=${productsState[i].image}
-              alt=""
-            />
-        </div>
-            <div class="product__name">${productsState[i].name}</div>
-              <div class="product__rate">
-                ${'<span>*</span>'.repeat(productsState[i].rates)}
-              </div>
-              <div class="product__price">R <span>${productsState[i].price}</span></div> 
-                <button onclick="cartitems(${i})">+ ADD TO CART</button> 
-         </div>
-    `
-  }
-
-  
-}
-
 function cartD() {
   cartData.innerHTML = ""
 // loop into productsState and display
@@ -152,18 +130,32 @@ for (let i = 0; i < numberdisplay.length; i++) {
               ${'<span>*</span>'.repeat(numberdisplay[i].rates)}
             </div>
             <div class="product__price">R <span>${numberdisplay[i].price}</span></div> 
-            <button class="btn" onclick="deleted(${i})">Delete</button>
+            <button class="btn" onclick="deleted(${i})">- Delete</button>
        </div>
   `
 }
-cartD.innerHTML = numberdisplay.length;
 
 }
 
-cartD()
+function deleted(i) {
+  numberdisplay.splice(i,1)
+  document.getElementById('samcotton').innerHTML = numberdisplay.length;
 
-samatotal()
+  cartD()
+  samatotal(i)
+  homeDisplayProducts()
+}
+
+function samatotal(i) {
+  let total = 0;
+
+  for (let i = 0; i < numberdisplay.length; i++) {
+     total  += numberdisplay[i].price
+    
+  }
+  priceTotal.innerHTML = "R"+total
+  
+}
 
 // CALL THE DISPLAY FUNCTION
 homeDisplayProducts()
-cartD()
